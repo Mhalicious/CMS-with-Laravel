@@ -10,14 +10,19 @@ class CreatePostsTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up()
+	public function up()//up für wenn man eine Migration startet
 	{
-		Schema::create('posts', function($table))
+		Schema::create('posts', function(Blueprint $table)
 		{
+
 			$table->increments('id');
 			$table->string('title',200);
 			$table->string('slug',400);//looks-like-this, besser für URL
-		}
+			$table->boolean('draft'); //Vorschau
+			$table->text('content');
+			$table->timestamps();
+
+		});
 	}
 
 	/**
@@ -25,9 +30,11 @@ class CreatePostsTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function down()
+	public function down()//down für "rollback" Migration - invers von den "up"-Sachen
 	{
-		//
+
+		Schema::drop('posts');
+
 	}
 
 }

@@ -30,7 +30,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		return view('welcome');//egal was man vom ControllerMethode bekommt, ist die Response
 	}
 
 }
