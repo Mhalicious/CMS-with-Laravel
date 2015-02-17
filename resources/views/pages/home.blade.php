@@ -1,6 +1,6 @@
 @extends('master')
 
-@sections('content')
+@section('content')
 
     Home Page
 

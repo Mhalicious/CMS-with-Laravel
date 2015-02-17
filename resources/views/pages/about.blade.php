@@ -1,7 +1,7 @@
 @extends('master')
 
-@sections('content')
+@section('content')
 
     About me
-    
+
 @stop
