@@ -12,11 +12,14 @@
 */
 
 // Route::get('/', 'WelcomeController@index');
-Route::get('/', 'PagesController@index');
-Route::get('about', 'PagesController@about');
-// Route::get('home', 'HomeController@index');
+Route::get('/', [
+  'as' => 'home',
+  'uses' => 'PagesController@index'
+  ]);
 
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+Route::get('/posts/{slug}',[
+  'as' => 'post-show',
+  'uses' => 'PostController@getShow'
+  ]);
+
+// Route::get('about', 'PagesController@about');
