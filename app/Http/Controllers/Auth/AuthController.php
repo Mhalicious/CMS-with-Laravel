@@ -1,12 +1,12 @@
 <?php namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
-
 	/*
 	|--------------------------------------------------------------------------
 	| Registration & Login Controller
@@ -17,22 +17,36 @@ class AuthController extends Controller {
 	| a simple trait to add these behaviors. Why don't you explore it?
 	|
 	*/
-
 	use AuthenticatesAndRegistersUsers;
 
+	// protected $redirectTO = '/cms_laravel/public/';
 	/**
-	 * Create a new authentication controller instance.
-	 *
-	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
-	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
-	 * @return void
-	 */
+	* Create a new authentication controller instance.
+	*
+	* @param  \Illuminate\Contracts\Auth\Guard  $auth
+	* @param  \Illuminate\Contracts\Auth\Registrar  $registrar
+	* @return void
+	*/
 	public function __construct(Guard $auth, Registrar $registrar)
 	{
 		$this->auth = $auth;
 		$this->registrar = $registrar;
-
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+	public function getRegister()
+	{
+		return view('auth.register');
+	}
+
+	public function getLogin()
+	{
+		return view('auth.login');
+	}
+
+	public function getLogout()
+	{
+		Auth::logout();
+		return redirect('login');
+	}
 }

@@ -22,6 +22,14 @@ Route::get('/posts/{slug}',[
   'uses' => 'PostController@getShow'
   ]);
 
+ Route::get('login', 'Auth\AuthController@getLogin');
+ Route::get('logout', 'Auth\AuthController@getLogout');
+
+Route::get('home', function ()
+{
+  return view('admin');
+});
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

@@ -18,7 +18,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
+					<form class="form-horizontal" role="form" method="POST" action="/cms_laravel/public/auth/login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
@@ -51,7 +51,7 @@
 									Login
 								</button>
 
-								<a href="/password/email">Forgot Your Password?</a>
+								<a href="/cms_laravel/public/password/email">Forgot Your Password?</a>
 							</div>
 						</div>
 					</form>
