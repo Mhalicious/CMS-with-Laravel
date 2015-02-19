@@ -22,4 +22,9 @@ Route::get('/posts/{slug}',[
   'uses' => 'PostController@getShow'
   ]);
 
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+  ]);
+
 // Route::get('about', 'PagesController@about');
